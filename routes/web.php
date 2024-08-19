@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/search', [PostController::class, 'search'])->name('posts.search');
+
+Route::resource('post', PostController::class);
+
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [PokemonController::class, 'search'])->name('dashboard');
     Route::get('/pokemon/search', [PokemonController::class, 'search'])->name('pokemon.search');
