@@ -9,7 +9,7 @@ class PokeApiService
     protected string $baseUrl = 'https://pokeapi.co/api/v2/';
 
     public function getPokemon(string $name): array
-    {
+{
         $response = Http::get($this->baseUrl . 'pokemon/' . $name);
 
         if ($response->successful()) {
@@ -21,7 +21,7 @@ class PokeApiService
 
     public function getRandomPokemon(): array
     {
-        $randomId = rand(1, 898); // There are 898 Pokémon as of Generation 8
+        $randomId = rand(1, 898);
         return $this->getPokemon((string)$randomId);
     }
 }
